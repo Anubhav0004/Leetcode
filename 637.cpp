@@ -52,3 +52,38 @@ public:
         return ans;
     }
 };
+////////////////////////////////////////////////////////////////////////////// less space ///////////////////////////////////////////////////////////////////////////////////////
+class Solution {
+public:
+    vector<double> averageOfLevels(TreeNode* root) 
+    {
+        vector<double> v;
+        if(!root)
+        {
+            return v;
+        }
+        queue<TreeNode*> q;
+        TreeNode* temp;
+        
+        int size;
+        double val;
+        q.push(root);
+        while(!q.empty())
+        {
+            val=0;
+            size=q.size();
+            for(int i=0;i<size;i++)
+            {
+                temp=q.front();
+                q.pop();
+                if(temp->left)
+                    q.push(temp->left);
+                if(temp->right)
+                    q.push(temp->right);
+                val+=temp->val;
+            }
+            v.push_back(val/size);
+        }
+        return v;
+    }
+};
