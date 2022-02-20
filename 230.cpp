@@ -1,3 +1,21 @@
+int i=0;
+    int ans;
+    void inorder(TreeNode *root,int k)
+    {
+        if(!root)
+            return;
+        inorder(root->left,k);
+        i++;
+        if(i==k)
+            ans=root->val;
+        inorder(root->right,k);
+    }
+    int kthSmallest(TreeNode* root, int k) 
+    {
+        inorder(root,k);
+        return ans;
+    }
+///////////////////////////////////////////MY APPROACH//////////////////////////////////////////////////////////
 class Solution {
 public:
     vector<int> v;
