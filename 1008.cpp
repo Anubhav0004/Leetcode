@@ -1,3 +1,18 @@
+TreeNode* build(vector<int> &v,int &i,int bound)
+    {                           ////////////////////EFFICIENT//////////////////////
+        if(i==v.size() || v[i]>bound)
+            return NULL;
+        TreeNode *root=new TreeNode(v[i++]);
+        root->left=build(v,i,root->val);
+        root->right=build(v,i,bound);
+        return root;
+    }
+    TreeNode* bstFromPreorder(vector<int>& preorder) 
+    {
+        int i=0;
+        return build(preorder,i,INT_MAX);
+    }
+///////////////////////////////////////////////MY APPROACH////////////////////////////////////////////////////////////////////
 class Solution {
 public:
     TreeNode *solve(vector<int> &preorder,int prestart,int preend,
