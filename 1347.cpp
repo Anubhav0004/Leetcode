@@ -1,3 +1,30 @@
+//////////////////////////////////////////////////OPTIMISED APPROACH//////////////////////////////////////////////////////
+class Solution {
+public:
+    int minSteps(string s, string t) 
+    {
+        int count=0;
+        unordered_map<char,int> mp;
+        for(auto it:s)
+        {
+            mp[it]++;
+        }
+        for(auto it:t)
+        {
+            mp[it]--;
+        }
+        for(auto it:mp)
+        {
+            if(it.second<0)
+                count+=it.second;
+        }
+        return abs(count);
+    }
+};
+
+////////////////////////////////////MINE////////////////////////////////////////////////////////
+
+
 class Solution {
 public:
     int minSteps(string s, string t) 
