@@ -1,4 +1,4 @@
-class Solution {
+class Solution { /////not optimised
 public:
     bool search(vector<int>& nums, int target) 
     {
