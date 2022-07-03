@@ -14,7 +14,7 @@ public:
         }
         for(int i=1;i<n+1;i++)
         {
-            for(int j=0;j<amount+1;j++)
+            for(int j=1;j<amount+1;j++) /////////////j=0 will also work but in playlist it's 1///////
             {
                 if(coins[i-1]<=j)
                 {
