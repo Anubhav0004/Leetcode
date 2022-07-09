@@ -1,18 +1,17 @@
-class Solution {///////////////sliding window////////////////
+class Solution {///////////////sliding window + deque////////////////
 public:
     int maxResult(vector<int>& nums, int k) 
     {
-        queue<int> q;
-        q.push(0);
-        for(int i=1;i<nums.size();i++)
-        {
-           if(q.front()+k<i)
-               q.pop();
-            nums[i]+=nums[q.front()];
-            while(!q.empty() && nums[q.front()]<=nums[i])
-                q.pop();
-            q.push(i);
-        }
+        deque<int> d{0};
+        // cout<<d.front()<<endl;
+        for (int i = 1; i < nums.size(); ++i) {
+            if (d.front() + k < i)
+                d.pop_front();        
+            nums[i] += nums[d.front()];
+            while (!d.empty() && nums[d.back()] <= nums[i])
+                d.pop_back();
+            d.push_back(i);
+        }q
         return nums.back();
     }
 };
